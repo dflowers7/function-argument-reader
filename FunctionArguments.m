@@ -18,7 +18,7 @@ assert(exist(fun,'file')>0||exist(fun,'builtin')>0, 'FunctionArguments:FunNotFou
 helpstr = help(fun);
 
 assignmentStrs = regexpi(helpstr, ['[\[]?(?<outputs>[\w,\s]*)[\]]?\s*=\s*' fun '(?<inputs>((\s+)|(\([\w,\s]*\))))'], 'names');
-assert(~isempty(assignmentStrs), 'FunctionArguments:InvalidHelpInputComments', 'Function "%s" had no identifiable example assignment calls of the function in the HELP comments.')
+assert(~isempty(assignmentStrs), 'FunctionArguments:InvalidHelpInputComments', 'Function "%s" had no identifiable example function calls in the HELP comments.')
 %assignmentStrs = regexprep(assignmentStrs, '[\(\)\[\]\s]', '');
 assignmentStrs = assignmentStrs(1);
 % if isempty(regexp('\w+', assignmentStrs.inputs, 'ONCE'))
